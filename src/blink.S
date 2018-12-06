@@ -27,8 +27,8 @@ _start:
 	sw		t0, gpio_out_en(s1)
 1:
 	addi	t1, x0, 0
-	lui		t2, %hi(0x100000)
-	lui		a7, %hi(0x200000)
+	lui		t2, %hi(0x10000)
+	lui		a7, %hi(0x15000)
 
 2:
 	sw		t0, gpio_port(s1)
