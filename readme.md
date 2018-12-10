@@ -20,9 +20,16 @@ for the HiFive1 development board. These files are enumerated below:
 
 the src directory contains several assembly code examples intended to be 
 used in conjunction with the corresponding tutorial on BetterOS.org.
+
+
  - src/blink.S
- 
+
  A very simple "hello world" type assembly program. Blinks an LED connected to GPIO pin 2 (HiFive1)
+
+ - src/breathe.S
+
+ Demonstrates simple PWM configuration.
+
  - src/uart_echo.S
- 
+
  Demonstrates simple UART communication (echos all characters received).
