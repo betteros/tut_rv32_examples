@@ -10,17 +10,11 @@
 .set pwm1_base,  0x10025000
 .set pwm2_base,  0x10035000
 
-// prci memory mapped registers (relative to gpio0_base)
+// prci memory mapped registers (relative to prci_base)
 .set prci_hfrosc_cfg, 0x00
 .set prci_hfxosc_cfg, 0x04
 .set prci_pll_cfg,    0x08
 .set prci_pll_out_div,0x0c
-
-// gpio memory mapped registers (relative to gpio0_base)
-.set hfrosc_div, 0x00
-.set hfrosc_trim,  0x00
-.set hfrosc_en, 0x00
-.set hfrosc_ready,   0x00
 
 // gpio memory mapped registers (relative to gpio0_base)
 .set gpio_in_val, 0x00
@@ -243,9 +237,15 @@ send_one:
 
 
 _start:
+
+//	lui		t1, %hi(0xfffffff)
+//startloop:
+//	addi	t1, t1, -1
+//	bne		t1, x0, startloop
+
 	lui		s0, %hi(prci_base)
-	lui 	t0, %hi(0x70000004)
-	addi 	t0,t0,%lo(0x70000004)
+	lui 	t0, %hi(0x40000004)
+	addi 	t0,t0,%lo(0x40000004)
 	sw		t0, prci_hfrosc_cfg(s0)
 	lui 	t0, %hi(0x00010ff1)
 	addi 	t0,t0,%lo(0x00010ff1)
